@@ -17,7 +17,7 @@ class RequestUrls(BaseModel):
 def fetchData(Urls: RequestUrls):
     for url in Urls.urls:
         try:
-            html_content = extract_data_from_html(url)
+            html_content = fetch_html_content(url)
             paragraphs, anchors = extract_data_from_html(html_content)
             save_data_to_json(url, paragraphs, anchors)
         except:
